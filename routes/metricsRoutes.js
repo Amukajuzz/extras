@@ -1,4 +1,3 @@
-// src/routes/metricsRoutes.js
 const express = require('express');
 const router = express.Router();
 const authenticateToken = require('../middlewares/auth'); // Импортируем middleware для аутентификации
@@ -6,7 +5,6 @@ const Student = require('../models/Student');
 const Assignment = require('../models/Assignment');
 const Achievement = require('../models/Achievement');
 
-// Получение средней оценки по всем заданиям
 router.get('/average-score', authenticateToken, async (req, res) => { // Добавляем аутентификацию
     try {
         const assignments = await Assignment.find();
@@ -18,7 +16,6 @@ router.get('/average-score', authenticateToken, async (req, res) => { // Доб�
     }
 });
 
-// Получение процента студентов, завершивших курс
 router.get('/completion-rate', authenticateToken, async (req, res) => { // Добавляем аутентификацию
     try {
         const students = await Student.find();
@@ -30,7 +27,6 @@ router.get('/completion-rate', authenticateToken, async (req, res) => { // До�
     }
 });
 
-// Получение студента с самой высокой средней оценкой
 router.get('/top-performer', authenticateToken, async (req, res) => { // Добавляем аутентификацию
     try {
         const students = await Student.find();
@@ -61,7 +57,6 @@ router.get('/top-performer', authenticateToken, async (req, res) => { // Доб�
     }
 });
 
-// Получение студентов с наибольшим количеством достижений
 router.get('/achievements/top-achievers', authenticateToken, async (req, res) => { // Добавляем аутентификацию
     try {
         const topAchievers = await Achievement.aggregate([

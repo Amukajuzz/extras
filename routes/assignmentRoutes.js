@@ -3,7 +3,6 @@ const router = express.Router();
 const authenticateToken = require('../middlewares/auth');
 const Assignment = require('../models/Assignment');
 
-// CRUD операции для заданий
 router.post('/', authenticateToken, async (req, res) => {
     try {
         const newAssignment = new Assignment(req.body);

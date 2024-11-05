@@ -3,7 +3,6 @@ const router = express.Router();
 const authenticateToken = require('../middlewares/auth');
 const Achievement = require('../models/Achievement');
 
-// CRUD операции для достижений
 router.post('/', authenticateToken, async (req, res) => {
     try {
         const newAchievement = new Achievement(req.body);

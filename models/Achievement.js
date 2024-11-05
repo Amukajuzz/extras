@@ -11,7 +11,7 @@ const achievementSchema = new mongoose.Schema({
     },
     student: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student', // предполагается, что есть модель Student
+        ref: 'Student',
         required: true
     }
 });

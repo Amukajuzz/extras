@@ -2,7 +2,6 @@ const Student = require('../models/Student');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-// Регистрация нового студента
 const addStudent = async (req, res) => {
     try {
         const { name, email, enrollmentDate, courseCompletionStatus, password } = req.body;
@@ -22,7 +21,6 @@ const addStudent = async (req, res) => {
     }
 };
 
-// Логин студента
 const loginStudent = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -39,7 +37,6 @@ const loginStudent = async (req, res) => {
     }
 };
 
-// Получение списка студентов
 const getStudents = async (req, res) => {
     try {
         const students = await Student.find();

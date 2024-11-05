@@ -3,9 +3,7 @@ const router = express.Router();
 const authenticateToken = require('../middlewares/auth');
 const Student = require('../models/Student');
 
-// CRUD операции для студентов
 
-// Получить всех студентов
 router.get('/', authenticateToken, async (req, res) => {
     try {
         const students = await Student.find();
@@ -15,7 +13,6 @@ router.get('/', authenticateToken, async (req, res) => {
     }
 });
 
-// Получить студента по ID
 router.get('/:id', authenticateToken, async (req, res) => {
     try {
         const student = await Student.findById(req.params.id);
@@ -28,7 +25,6 @@ router.get('/:id', authenticateToken, async (req, res) => {
     }
 });
 
-// Добавить нового студента
 router.post('/', authenticateToken, async (req, res) => {
     try {
         const { name, email, enrollmentDate, courseCompletionStatus, password } = req.body;
@@ -40,7 +36,6 @@ router.post('/', authenticateToken, async (req, res) => {
     }
 });
 
-// Обновить данные студента
 router.put('/:id', authenticateToken, async (req, res) => {
     try {
         const student = await Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -53,7 +48,6 @@ router.put('/:id', authenticateToken, async (req, res) => {
     }
 });
 
-// Удалить студента
 router.delete('/:id', authenticateToken, async (req, res) => {
     try {
         const student = await Student.findByIdAndDelete(req.params.id);
